@@ -1,0 +1,27 @@
+{% extends 'pages/base.html' %}
+
+{%block mainbody%}
+    <div class="container mt-5 ">
+        <h3 class="text-center mb-4"><b>{{category|upper}}</b></h3>
+        <div class="d-flex justify-content-left row row-cols-1 row-cols-lg-3">
+            {% for item in items %}
+                <div class="border-primary1 col mb-4">
+                    <a style="text-decoration:none;color:black" href='/detail/{{item.id}}/'}>
+                    <div class="bg-primary1 card h-100">
+                        {%load static%}
+                        <img  src="{{item.get_img_url}}" class="home-category-img zoom card-img-top" alt="COMING"/>
+                        <div class="card-body">
+                            <h5 class="card-title text-center">{{item.title}}</h5>
+                            <p class="card-text text-center font-weight-light">{{item.Small_description}}</p>
+                        </div>
+                        <div class="card-footer border-primary1 bg-primary2">
+                            <p class="card-text text-center"><button type="button" class="btn btn-primary1">SHOP NOW</button></p>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+            {%endfor%}
+        </div>
+    </div>
+
+{%endblock mainbody%}

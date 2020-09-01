@@ -1,0 +1,69 @@
+    
+    <div class="container mt-5 ">
+        <h3 class="text-center mb-4"><b>OUR PRODUCTS</b></h3>
+        <div class= "d-flex justify-content-center row row-cols-1 row-cols-lg-3">
+                    <div class="border-primary1 col mb-4">
+                        <a style="text-decoration:none;color:black" href="product/poultry/"/>
+                        <div class="bg-primary1 card ">
+                            {% if PoultryCategoryImage|length > 0 %}
+                            <img  src="{{PoultryCategoryImage}}" class="home-category-img zoom card-img-top " alt="COMING"/>
+                            {% else %}
+                            {%load static%}
+                            <img  src="{%static "coming_soon.jpeg" %}" class="home-category-img zoom card-img-top " alt="COMING"/>
+                            {% endif %}
+                            <div class="card-body">
+                                <h5 class="card-title text-center">POULTRY</h5>
+                                <p class="card-text text-center font-weight-light">{{PoultryCategoryInfo}}</p>
+                            </div>
+                            <div class="card-footer border-primary1 bg-primary2">
+                                <p class="card-text text-center"><button type="button" class="btn btn-primary1">SHOP NOW</button></p>
+                            </div>
+                        </div>
+                        </a>
+                    </div>
+
+                    <div class="border-primary1 col mb-4">
+                        <a style="text-decoration:none;color:black" href="product/mutton/"/>
+                        <div class="bg-primary1 card ">
+                            {% if MuttonCategoryImage|length > 0 %}
+                            <img  src="{{MuttonCategoryImage}}" class="home-category-img zoom card-img-top " alt="COMING"/>
+                            <div class="card-body">
+                                <h5 class="card-title text-center">MUTTON</h5>
+                                <p class="card-text text-center font-weight-light">{{MuttonCategoryInfo}}</p>
+                            </div>
+                            {% else %}
+                            {%load static%}
+                            <img  src="{%static "coming_soon.jpeg" %}" class="home-category-img zoom card-img-top " alt="COMING"/>
+                            <div class="card-body">
+                                <h5 class="card-title text-center">MUTTON</h5>
+                                <p class="card-text text-center font-weight-light">{{SeafoodCategoryInfo}}</p>
+                            </div>
+                            {% endif %}
+                            <div class="card-footer border-primary1 bg-primary2">
+                                <p class="card-text text-center"><button type="button" class="btn btn-primary1">SHOP NOW</button></p>
+                            </div>
+                        </div>
+                        </a>
+                    </div>
+
+                    <div class="border-primary1 col mb-4">
+                        <a style="text-decoration:none;color:black" href="product/seafood/"/>
+                        <div class="bg-primary1 card ">
+                            {% if SeafoodCategoryImage|length > 0 %}
+                            <img  src="{{SeafoodCategoryImage}}" class="home-category-img zoom card-img-top " alt="COMING"/>
+                            {% else %}
+                            {%load static%}
+                            <img  src="{%static "coming_soon.jpeg" %}" class="home-category-img zoom card-img-top " alt="COMING"/>
+                            {% endif %}
+                            <div class="card-body">
+                                <h5 class="card-title text-center">SEAFOOD</h5>
+                                <p class="card-text text-center font-weight-light">{{SeafoodCategoryInfo}}</p>
+                            </div>
+                            <div class="card-footer border-primary1 bg-primary2">
+                                <p class="card-text text-center"><button type="button" class="btn btn-primary1">SHOP NOW</button></p>
+                            </div>
+                        </div>
+                        </a>
+                    </div>
+        </div>
+    </div>

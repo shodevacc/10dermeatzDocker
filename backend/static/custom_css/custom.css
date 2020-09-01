@@ -1,0 +1,141 @@
+#loader { 
+  border: 12px solid #f3f3f3; 
+  border-radius: 50%; 
+  border-top: 12px solid #444444; 
+  width: 70px; 
+  height: 70px; 
+  animation: spin 1s linear infinite; 
+} 
+
+@keyframes spin { 
+  100% { 
+    transform: rotate(360deg); 
+  } 
+} 
+
+.center { 
+  position: absolute; 
+  top: 0; 
+  bottom: 0; 
+  left: 0; 
+  right: 0; 
+  margin: auto; 
+} 
+  
+  
+  .zoom {
+      transition: transform .2s; /* Animation */
+      height: 260px;
+    }
+    
+    .zoom:hover {
+      transform: scale(1.05 ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    }
+  
+    .home-category-img{
+      width:18em;
+      height:22em;
+    }
+    .footer{
+      border-bottom: 1px solid #8e8983;
+    }
+
+    .searchbar{
+      width:10em;
+      height:2.2em;
+      transition:width 0.5s;
+    }
+    .searchbar:focus{
+      width:23.7em;
+      transition:width 0.5s;
+    }
+  
+    .product-detail-img{
+      height:23em;
+      width:100%;
+    }
+
+  @media (min-width: 450px) { 
+   
+    .home-category-img{
+      width:16em;
+      height:26em;
+    }
+    .product-detail-img{
+      height:28em;
+      width:100%;
+    }
+  
+  }
+
+
+  /* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { 
+  .productDetail{
+    height:60em
+  }
+  .home-category-img{
+    width:18em;
+    height:26em;
+  }
+  .product-detail-img{
+    height:33em;
+    width:100%;
+  }
+ 
+
+}
+
+ /* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+  .productDetail{
+    height:55em
+  }
+  .product-detail-img{
+    height:35em;
+    width:100%;
+  }
+  .home-category-img{
+    width:18em;
+    height:26em;
+  }
+  
+ }
+
+ /* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+  .productDetail{
+    height:40em
+  }
+    .product-detail-img{
+      height:90%;
+      width:100%;
+    }
+
+    .home-category-img{
+      width:18em;
+      height:16em;
+    }
+    
+    .footer{
+      border-right: 1px solid #8e8983;
+    }
+ }
+
+ /* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+    .product-detail-img{
+      height:100%;
+      width:100%;
+    }
+        
+        
+
+    .footer{
+      border-right: 1px solid #8e8983;
+    }
+ }
+
+ .test{
+   background-color:blue;
+ }

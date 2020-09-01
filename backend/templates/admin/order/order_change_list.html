@@ -1,0 +1,15 @@
+{%extends 'admin/change_list.html'%}
+
+{% block object-tools %}
+
+
+  <body onLoad="timeRefresh(5000);">
+    <script>
+      function timeRefresh(time) {
+        setTimeout("location.reload(true);", time);
+      }
+    </script>
+    <h3>This page will auto refresh after 5 seconds.</h3>
+  </body>
+
+{% endblock object-tools %}

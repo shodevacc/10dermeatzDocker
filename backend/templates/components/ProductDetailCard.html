@@ -1,0 +1,23 @@
+<div class="card my-3 text-center bg-primary2" >
+    <div class="row no-gutters">
+      <div class="col-lg-6">
+        <img src={{item.get_img_url}} class="product-detail-img card-img" alt="...">
+      </div>
+      <div class="col-lg-6">
+        <div class="card-body">
+          <h5 class="card-title"><b>{{item.title}}</b></h5>
+          <p class="card-text text-muted"><small>{{item.sub_title}}</small></p>
+          <hr/>
+          <p class="card-text">{{item.large_description}}</p>
+
+          <!-- FORM GOES HERE -->
+          <div id="productDetail" data-pk={{id}} ></div>
+          <p class="card-text text-center font-weight-bold"> </p>
+          <hr/>
+          <p class="card-text"><small class="text-muted">Timings:<b>6A.M to 6P.M</b></small></p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  

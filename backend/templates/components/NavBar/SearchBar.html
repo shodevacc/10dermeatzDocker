@@ -1,0 +1,59 @@
+<div className="form-inline">
+    <div class="dropdown">
+        <input onkeyup="SearchBarFind()" class="searchbar dropdown-toggle rounded border" placeholder="Search..." type='text'  id="SearchBar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
+        <div id="SearchBarItems" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a style="width:23.7em;;height:2.2em" class="dropdown-item" >Lets find some tender meats</a>
+        </div>
+      </div>
+        
+</div>
+
+<script>
+
+    function SearchBarFind(){
+        var titles=JSON.parse('{{titles|escapejs}}') //get the dict
+        var input=document.getElementById('SearchBar').value
+        var dropdown=document.getElementById('SearchBarItems')
+        var dropdown_items=''
+        for(id in titles){
+            console.log(id) //actual id
+            console.log(titles[id]) //actual title
+            if(input!='' && titles[id].toLowerCase().includes(input.toLowerCase())){ //find in items
+                console.log(titles[id])
+                var displayItem=titles[id].slice(0,43)
+                dropdown_items+=`<a style="width:23.7em;;height:2.2em" class="dropdown-item" href="/detail/${id}/"><b>${displayItem}</b></a>`
+            }
+            else{ //if not found. Try finding in categories
+
+                if(input!='' && ("chicken".includes(input.toLowerCase()) || "poultry".includes(input.toLowerCase()) || "meat".includes(input.toLowerCase())) ){
+                    if(!dropdown_items.includes(`<a style="width:23.7em;;height:2.2em" class="dropdown-item" href="/product/poultry/"><b>Poultry</b> <small>in Categories</small></a>`)){
+                        dropdown_items+=`<a style="width:23.7em;;height:2.2em" class="dropdown-item" href="/product/poultry/"><b>Poultry</b> <small>in Categories</small></a>`
+                    }
+                
+                }
+                if(input!='' && ("mutton".includes(input.toLowerCase()) || "meat".includes(input.toLowerCase())) ){
+                    if(!dropdown_items.includes(`<a style="width:23.7em;;height:2.2em" class="dropdown-item" href="/product/mutton/"><b>Mutton</b> <small>in Categories</small></a>`)){
+                        dropdown_items+=`<a style="width:23.7em;;height:2.2em" class="dropdown-item" href="/product/mutton/"><b>Mutton</b> <small>in Categories</small></a>`
+                    }
+                    
+
+                }
+                if(input!='' && ("fish".includes(input.toLowerCase()) || "seafood".includes(input.toLowerCase()) || "prawns".includes(input.toLowerCase()) || "meat".includes(input.toLowerCase()) ) ){
+                    if(!dropdown_items.includes(`<a style="width:23.7em;;height:2.2em" class="dropdown-item" href="/product/seafood/"><b>Seafood</b> <small>in Categories</small></a>`)){
+                        dropdown_items+=`<a style="width:23.7em;;height:2.2em" class="dropdown-item" href="/product/seafood/"><b>Seafood</b> <small>in Categories</small></a>`
+                    }
+                }
+        } 
+
+    }
+    if(dropdown_items.length==0){
+        dropdown_items=`<a style="width:23.7em;;height:2.2em" class="dropdown-item" >No Items Found</a>`
+    }
+    dropdown.innerHTML=dropdown_items
+
+       
+    }
+    
+    
+
+</script>

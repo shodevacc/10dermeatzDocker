@@ -1,0 +1,77 @@
+{% extends "admin/change_form.html" %}
+
+{% comment %} Add a button to send message about info {% endcomment %}
+
+{% block object-tools %}
+    <form id="delivery_personelle_form" method="POST">
+        {%csrf_token%}
+        <input id="delivery_personelle_input" name="delivery_personelle_selected" class="vTextField">
+        <button class="button" type="submit">Send Delivery Details</button>
+    </form>
+    <br/>
+
+    {{block.super}}
+{% endblock %}
+
+{% comment %} The Info portion of the object {% endcomment %}
+{% block field_sets %}
+<style>
+table, td, th {
+  border: 1px solid black;
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+</style>
+
+{% for fieldset in adminform %}
+    
+  {% include "admin/includes/fieldset.html" %} 
+    <div>
+        <table id='tab'>
+            <tr>
+                <th>Item</th>
+                <th>Quantity(Numbers)</th>
+                <th>Weight(grams)</th>
+                <th>Price(Rupees)</th>
+            </tr>
+            {% for item in orderItems%}
+                <tr>
+                    <td>{{item.product.title}}</td>
+                    <td>{{item.quantity}}</td>
+                    <td>{{item.weight}}</td>
+                    <td>{{item.price}}</td>
+                </tr>
+            
+            {%endfor%}
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>TOTAL:{{Total}}</td>
+                </tr>
+        </table>    
+    </div>
+{% endfor %}
+<script>
+
+let deliveryPersonelleForm=document.getElementById("delivery_personelle_form")
+var input=document.getElementById("delivery_personelle_input")
+
+document.getElementById("id_delivery_Personelle").onchange = function() {myFunction()};
+
+
+function myFunction() {
+    var Selectelement=document.getElementById("id_delivery_Personelle")
+    var val = Selectelement.value;
+    var txt = Selectelement.options[Selectelement.selectedIndex].text;
+    input.value=txt
+    delivery_personelle_form.action='/api/sendmessage/'+{{id}}+'/'+val+'/'
+}
+</script>
+{%endblock%}
+
+{% block after_field_sets %}{% endblock %}
